@@ -16,23 +16,36 @@ for (x = 48; x <= 57; x++){
 }
 
 // cek tombol
-cek_tombol = []
-for (x = 1; x <= 1000; x++){
-	cek_tombol.push(x)
-}
+// cek_tombol = []
+// for (x = 1; x <= 1000; x++){
+// 	cek_tombol.push(x)
+// }
 
 $(window).on('keydown', function(event){
 	// cek tombol
-	for (n in cek_tombol){
-		if (event.keyCode == cek_tombol[n]){
-			console.log(cek_tombol[n])
-		}
+	// for (n in cek_tombol){
+	// 	if (event.keyCode == cek_tombol[n]){
+	// 		console.log(cek_tombol[n])
+	// 	}
+	// }
+
+	// hapus semua
+	if (!event.ctrlKey && event.shiftKey && event.keyCode == 46){
+		teks = []
+		$('textarea').val(teks.join(''))
 	}
 
 	cetak = function(kode, arab){
-		if (!event.shiftKey && event.keyCode == kode){
+		if (!event.ctrlKey && !event.shiftKey && event.keyCode == kode){
 			tulis(arab)
 		}	
+	}
+
+	// main shift
+	main_shift = function(kode, arab){
+		if (!event.ctrlKey && event.shiftKey && event.keyCode == kode){
+			tulis(arab)
+		}
 	}
 
 	// backspace
@@ -42,13 +55,6 @@ $(window).on('keydown', function(event){
 	}
 	// spasi
 	cetak(32, ' ')
-
-	// main shift
-	main_shift = function(kode, arab){
-		if (event.shiftKey && event.keyCode == kode){
-			tulis(arab)
-		}
-	}
 
 	// shift w
 	main_shift(87, 'ؤ')
@@ -76,6 +82,8 @@ $(window).on('keydown', function(event){
 	main_shift(75, 'ٍ')
 	// shift z
 	main_shift(90, 'ظ')
+	// shift n
+	main_shift(78, 'ٌ')
 
 	// escape
 	cetak(192, 'ٰ')
