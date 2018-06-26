@@ -1,3 +1,5 @@
+// setting huruf-huruf arab
+
 teks = []
 tulis = function(x){
 	teks.push(x)
